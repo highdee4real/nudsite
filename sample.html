@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+       <form method="post" action="http://localhost:3000/student/login">
+         <div class="box">
+            <label>Student ID</label>
+            <input type="text" id="student_id" name="student_id" placeholder="Please enter your student ID" />
+        </div>
+        <div class="box">
+            <label>Password</label>
+            <input type="password" id="password" name="password" placeholder="Please enter your correct password" />
+        </div>
+        <button type="submit" onclick="handleSubmit()">Login</button>
+       </form>
+    </div>
+    <script>
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        var student_id = document.getElementById('student_id').value;
+        console.log(student_id)
+    }
+</script>
+</body>
+
+</html>

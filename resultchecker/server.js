@@ -4,6 +4,7 @@ const app = express()
 const port = 3000
 
 
+const AdminRouter = require('./routes/admin')
 const StudentRouter = require('./routes/student')
 const StaffRouter = require('./routes/staff')
 
@@ -23,6 +24,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
+app.use("/admin", AdminRouter);
 app.use("/student", StudentRouter);
 app.use("/staff", StaffRouter);
 

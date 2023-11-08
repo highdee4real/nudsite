@@ -11,7 +11,7 @@ router.get("/", function (req, res) {
 router.post("/signup", function (req, res) {
     const { student_id, surname, othername, gender, grade, department, password } = req.body;
     db.none(
-      "INSERT INTO students(student_id, surname, othername, gender, grade, department, password) VALUES($1,$2,$3,$4,$5,$6,$7)",
+      "INSERT INTO public.students(student_id, surname, othername, gender, grade, department, password) VALUES($1,$2,$3,$4,$5,$6,$7)",
       [student_id, surname, othername, gender, grade, department, password]
     ).then(() => {
         res.status(200).json({ message: "Student created successfully"})
@@ -24,12 +24,12 @@ router.post("/signup", function (req, res) {
 router.post("/login", function (req, res) {
     const { student_id, password } = req.body;
     db.any(
-        "SELECT password FROM students where student_id = '"+student_id+"'"
+        "SELECT password FROM public.students where student_id = '"+student_id+"'"
     ).then((data) => {
         if (password == data[0].password) {
-            res.status(200).json({message: "Correct User Creadentials"})
+            res.status(200).json({message: "Correct Student Creadentials"})
         } else {
-            res.status(500).json({ error: "Incorrect User Credentials" });
+            res.status(500).json({ error: "Incorrect Student Credentials" });
         }
     }).catch((error) => {
         console.error("Error fetching student:", error);

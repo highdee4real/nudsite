@@ -28,6 +28,7 @@ router.post("/login", function (req, res) {
   db.any(
     "SELECT password FROM public.staff WHERE staff_id = '"+staff_id+"'"
   ).then((data) => {
+    console.log(data)
      if (password == data[0].password) {
        res.status(200).json({ message: "Correct User Creadentials" });
      } else {

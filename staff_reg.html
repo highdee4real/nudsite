@@ -92,42 +92,42 @@
             <h4 class="text-primary">Input your data below to register  </h4>
         </center>   
 
-        <form action="#"> <!-- /action_page.php -->
+        <form action="http://localhost:3000/staff/signup" method="post"> <!-- /action_page.php -->
             <div class="form-group pt-2">
               <label for="id">Staff_Id:</label>
-              <input type="text" class="form-control" placeholder="Enter staff id" id="id" required>
+              <input type="text" class="form-control" placeholder="Enter staff id" id="id" name="staff_id" required>
               <!-- <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
             <div class="form-group">
                 <label for="title">Select Title:</label>
-                <select class="form-control" id="title" required>
+                <select class="form-control" id="title" name="title" required>
                   <option>select</option>
-                  <option>Mr.</option>
-                  <option>Mrs.</option>
-                  <option value="">Miss.</option>
-                  <option value="">Alh.</option>
+                  <option value="Mr">Mr.</option>
+                  <option value="Mrs">Mrs.</option>
+                  <option value="Miss">Miss.</option>
+                  <option value="Alh">Alh.</option>
                 </select>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" placeholder="Enter name" id="name" required>
+                <input type="text" class="form-control" placeholder="Enter name" id="name" name="name" required>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" class="form-control" placeholder="Enter email" id="name">
+                <input type="email" class="form-control" placeholder="Enter email" name="email" id="name">
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
 
             <div class="form-group">
                 <label for="number">Phone Number:</label>
-                <input type="number" class="form-control" placeholder="Enter phone number" id="name" required>
+                <input type="number" class="form-control" placeholder="Enter phone number" name="phonenumber" id="name" required>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
@@ -137,17 +137,17 @@
             </div>
             <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="">SS1
+                  <input type="checkbox" class="form-check-input" name="grades" value="SS1">SS1
                 </label>
               </div>
               <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="">SS2
+                  <input type="checkbox" class="form-check-input" name="grades" value="SS2">SS2
                 </label>
               </div>
               <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="">SS3
+                  <input type="checkbox" class="form-check-input" name="grades" value="SS3">SS3
                 </label>
               </div>
 
@@ -156,24 +156,24 @@
             </div>
             <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="">Art
+                  <input type="checkbox" class="form-check-input" name="department" value="Art">Art
                 </label>
               </div>
               <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="">Commercial
+                  <input type="checkbox" class="form-check-input" name="department" value="Commercial">Commercial
                 </label>
               </div>
               <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="">Science
+                  <input type="checkbox" class="form-check-input" name="department" value="Science">Science
                 </label>
               </div>
 
 
             <div class="form-group pt-2">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" id="pwd" required>
+              <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password" required>
               <!-- <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
@@ -208,7 +208,7 @@
                     } else {
                         y.type = "password"
                     }
-                }
+                }*/
                 </script>
             </div>
             <button type="submit" class="btn btn-primary mb-2">Sign-up</button> &nbsp; &nbsp; &nbsp; 
