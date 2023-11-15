@@ -61,14 +61,14 @@
               <a class="nav-link pt-2 pb-2 px-2 a" href="staff_log.html">Staffs' page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pt-2 pb-2 px-2 a" href="#">Check result</a>
+                <a class="nav-link pt-2 pb-2 px-2 a" href="check.html">Check result</a>
             </li>
         </ul>
     </div>
     <div class="col-md-2">
         <ul class="nav pt-3">
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="#">Admin</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="admin.html">Admin</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: tomato; color: white;">Back</a>
@@ -93,14 +93,14 @@
             <p class="text-danger"><strong>No Sign-in information, Click <a href="staff_reg.html"><i>here</i></a> to register </strong></p>
         </p> </center> 
 
-        <form action="http://localhost:3000/staff/login" method="post"> <!-- /action_page.php -->
+        <form action="#"> <!-- /res_proc.php -->
             <div class="form-group pt-3">
               <label for="id">Staff_Id:</label>
-              <input type="text" class="form-control" placeholder="Enter Staff id" name="staff_id" id="staff_id">
+              <input type="text" class="form-control" placeholder="Enter Staff id" id="id" required>
             </div>
             <div class="form-group pt-4 pb-4">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" name="password" id="password">
+              <input type="password" class="form-control" placeholder="Enter password" id="pwd" required>
             </div>
             <div class="form-group form-check pb-2">
                 <label class="form-check-label"> 
@@ -135,6 +135,10 @@
                         <div class="modal-body">
                             <form id="password-reset-form">
                                 <div id="alert"></div>
+                                <div class="form-group pb-2">
+                                    <label for="id">Staff Id</label>
+                                    <input type="text" id="id" style="width: 250px;"> <br>
+                                </div>
                                 <div class="form-group pb-2">
                                     <label for="password">Password</label>
                                     <input type="password" id="password" style="width: 250px;"> <br>

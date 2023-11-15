@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { db } = require("../models/Staff");
+const { rdb } = require("../models/Result");
 
 router.get("/", function (req, res) {
     res.send("Welcome to the staff API")
@@ -40,4 +41,27 @@ router.post("/login", function (req, res) {
   })
 })
 
+// router.post("/inputResult", function (req, res) {
+//   const {
+//     result_id,
+//     student_id,
+//     surname,
+//     othername,
+//     grade,
+//     department,
+//     subject1,
+//     subject2,
+//     subject3,
+//     subject4,
+//     subject5,
+//     subject6,
+//     subject7,
+//     subject8,
+//     subject9,
+//     subject1L,
+//     subject11,
+//     subject12,
+//   } = req.body;
+//   console.log(surname)
+// })
 module.exports = router
