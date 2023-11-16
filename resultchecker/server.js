@@ -1,13 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 // const session = require("express-session");
 // const pgSession = require("connect-pg-simple")(session);
 // const bcrypt = require("bcrypt");
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 
-
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 const AdminRouter = require('./routes/admin')
 const StudentRouter = require('./routes/student')
@@ -47,9 +49,10 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-app.get("/", (request, response) => {
-  response.json({ info: "Node.js, Express, and Postgres API" });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
 app.use("/admin", AdminRouter);
 app.use("/student", StudentRouter);
 app.use("/staff", StaffRouter);
