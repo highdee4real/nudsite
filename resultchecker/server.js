@@ -11,17 +11,26 @@ const port = process.env.PORT || 3000;
 // Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+
+// Specify the directory where your views are located
+app.set('views', __dirname + '/views');
+
+
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
 const AdminRouter = require('./routes/admin')
 const StudentRouter = require('./routes/student')
 const StaffRouter = require('./routes/staff')
 const ResultRouter = require('./routes/result')
 
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+
 
 //  const pool = new Pool({
 //    user: "your_db_user",

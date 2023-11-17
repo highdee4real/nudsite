@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const path = require('path')
 
 const { db } = require("../models/Staff");
 const { rdb } = require("../models/Result");
@@ -16,7 +17,12 @@ router.post("/signup", function (req, res) {
     [staff_id, title, name, email, phonenumber, grades, department, password]
   )
     .then(() => {
-      res.status(200).json({ message: "New Staff Added!!" });
+      // Assuming "std_log.html" is in the "public" folder
+      const filePath = path.join(__dirname, "../public", "staff_log.html");
+
+      // Send the file as a response
+      res.sendFile(filePath);
+      //res.status(200).json({ message: "New Staff Added!!" });
     })
     .catch((error) => {
       console.error("Error creating staff:", error);
@@ -27,17 +33,21 @@ router.post("/signup", function (req, res) {
 router.post("/login", function (req, res) {
   const { staff_id, password } = req.body;
   db.any(
-    "SELECT password FROM public.staff WHERE staff_id = '"+staff_id+"'"
+    "SELECT password FROM staff WHERE staff_id = '"+staff_id[0]+"'"
   ).then((data) => {
-    console.log(data)
-     if (password == data[0].password) {
-       res.status(200).json({ message: "Correct User Creadentials" });
-     } else {
-       res.status(500).json({ error: "Incorrect User Credentials" });
-     }
+    if (password[0] == data[0].password) {
+      console.log(true)
+      const filePath = path.join(__dirname, "../public", "res_proc.html");
+      // Send the file as a response
+      res.sendFile(filePath);
+    } else {
+      res.redirect("/staff_log.html");
+      //res.status(500).json({ error: "Incorrect Staff Credentials" });
+    }
   }).catch((error) => {
     console.error("Error Fetching Staff ", error);
-    res.status(500).json({ error: "Internal server error"})
+    res.redirect("/staff_log.html");
+    //res.status(500).json({ error: "Internal server error"})
   })
 })
 

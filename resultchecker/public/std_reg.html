@@ -114,10 +114,9 @@
 
             <div class="form-group">
                 <label for="gender">Select Gender:</label>
-                <select class="form-control" id="gender" required>
-                  <option>select</option>
-                  <option>male</option>
-                  <option>female</option>
+                <select class="form-control" id="gender" name="gender" required>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </select>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
@@ -125,11 +124,10 @@
 
             <div class="form-group">
                 <label for="class">Select Class:</label>
-                <select class="form-control" id="class" required>
-                  <option>select</option>
-                  <option>SS1</option>
-                  <option>SS2</option>
-                  <option value="">SS3</option>
+                <select class="form-control" id="grade" name="grade" required>
+                  <option value="SS1">SS1</option>
+                  <option value="SS2">SS2</option>
+                  <option value="SS3">SS3</option>
                 </select>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
@@ -137,11 +135,10 @@
 
             <div class="form-group">
                 <label for="dept">Select Department:</label>
-                <select class="form-control" id="dept" required>
-                  <option>select</option>
-                  <option>Art</option>
-                  <option>Commercial</option>
-                  <option value="">Science</option>
+                <select class="form-control" id="dept" name="department" required>
+                  <option value="Art">Art</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Science">Science</option>
                 </select>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
@@ -149,7 +146,7 @@
 
             <div class="form-group pt-2">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" id="pwd" required>
+              <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password" required>
               <!-- <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>

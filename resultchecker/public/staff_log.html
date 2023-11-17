@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="10"> 
 <title>Staff's Login</title>
 <link rel="stylesheet" href="bootstrap/css/boostrap">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -93,14 +92,14 @@
             <p class="text-danger"><strong>No Sign-in information, Click <a href="staff_reg.html"><i>here</i></a> to register </strong></p>
         </p> </center> 
 
-        <form action="#"> <!-- /res_proc.php -->
+        <form action="staff/login" method="post"> <!-- /res_proc.php -->
             <div class="form-group pt-3">
               <label for="id">Staff_Id:</label>
-              <input type="text" class="form-control" placeholder="Enter Staff id" id="id" required>
+              <input type="text" class="form-control" placeholder="Enter Staff id" id="id" name="staff_id" required>
             </div>
             <div class="form-group pt-4 pb-4">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" id="pwd" required>
+              <input type="password" class="form-control" placeholder="Enter password" name="password" id="pwd" required>
             </div>
             <div class="form-group form-check pb-2">
                 <label class="form-check-label"> 
@@ -137,11 +136,11 @@
                                 <div id="alert"></div>
                                 <div class="form-group pb-2">
                                     <label for="id">Staff Id</label>
-                                    <input type="text" id="id" style="width: 250px;"> <br>
+                                    <input type="text" name="staff_id" id="id" style="width: 250px;"> <br>
                                 </div>
                                 <div class="form-group pb-2">
                                     <label for="password">Password</label>
-                                    <input type="password" id="password" style="width: 250px;"> <br>
+                                    <input type="password" name="password" id="password" style="width: 250px;"> <br>
                                 </div>
                                 <div class="form-group pb-2">
                                     <label for="password-verify">Re-type password</label>

@@ -8,10 +8,11 @@ const resultSchema = {
       foreignKey: { table: "students", mapping: "student_id" },
       },
       grade: { type: "string", notNull: true },
-      term: { type: "integer", notNull: true },
+      term: { type: "string", notNull: true },
       session: { type: "string", notNull: true },
       subject: { type: "string", notNull: true },
-      score: { type: "integer", notNull: true }
+      score: { type: "integer", notNull: true },
+      remark: { type: "string", notNull: true }
   },
 };
 
@@ -21,10 +22,11 @@ CREATE TABLE IF NOT EXISTS results (
     result_id SERIAL PRIMARY KEY,
     student_id VARCHAR(25) REFERENCES students(student_id) NOT NULL,
     grade VARCHAR(25) NOT NULL,
-    term INTEGER NOT NULL,
+    term VARCHAR NOT NULL,
     session VARCHAR(25) NOT NULL,
     subject VARCHAR(25) NOT NULL,
-    score INTEGER NOT NULL
+    score INTEGER NOT NULL,
+    remark VARCHAR(25) NOT NULL
 )
 `
 )

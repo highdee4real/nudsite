@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="10">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>Check Result</title>
 <link rel="stylesheet" href="bootstrap/css/boostrap">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -91,18 +90,17 @@
             <h1>Check result</h1> <br>
         </center>   
 
-        <form action="#"> <!-- /RESULT.php -->
+        <form action="result/checkresult" method="post"> <!-- /RESULT.php -->
             <div class="form-group pt-2">
               <label for="id">Student register no:</label>
-              <input type="text" class="form-control" placeholder="Student resgister no" id="id" required>
+              <input type="text" class="form-control" placeholder="Student resgister no" id="id" name="student_id" required>
               <!-- <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div> -->
             </div>
             <div class="form-group">
                 <label for="session">Select session:</label>
-                <select class="form-control" id="session" required>
-                  <option>select</option>
-                  <option>2023/2024</option>
+                <select class="form-control" id="session" name="session" required>
+                  <option value="2023/24">2023/2024</option>
                 </select>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
@@ -110,11 +108,10 @@
 
             <div class="form-group">
                 <label for="term">Select term:</label>
-                <select class="form-control" id="term" required>
-                  <option>select</option>
-                  <option>First Term</option>
-                  <option>Second Term</option>
-                  <option value="">Third Term</option>
+                <select class="form-control" id="term" name="term" required>
+                  <option value="First Term">First Term</option>
+                  <option value="Second Term">Second Term</option>
+                  <option value="Third Term">Third Term</option>
                 </select>
                 <!-- <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div> -->
@@ -122,7 +119,7 @@
 
             <div class="form-group pt-4 pb-4">
                 <label for="pwd">Password:</label>
-                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                <input type="password" class="form-control" placeholder="Enter password" name="password" id="pwd">
               </div>
               <div class="form-group form-check pb-2">
                   <label class="form-check-label"> 
@@ -152,3 +149,5 @@
 <div class="row" style="background-color: #e6e6e6;">
         <div class="col-md-12 footer-copyright text-center"> &copy; <b>2023 Copyright Osogbo Mind The Gap (MTG)</b> </div>
 </div>
+</body>
+</html>
