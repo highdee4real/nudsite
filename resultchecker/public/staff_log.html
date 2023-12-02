@@ -73,7 +73,7 @@
                 <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: tomato; color: white;">Back</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: red; color: white;">Logout</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/logout" style="background-color: red; color: white;">Logout</a>
             </li>
         </ul>          
     </div>
@@ -92,7 +92,7 @@
             <p class="text-danger"><strong>No Sign-in information, Click <a href="staff_reg.html"><i>here</i></a> to register </strong></p>
         </p> </center> 
 
-        <form action="staff/login" method="post"> <!-- /res_proc.php -->
+        <form action="/staff/login" method="post"> <!-- /res_proc.php -->
             <div class="form-group pt-3">
               <label for="id">Staff_Id:</label>
               <input type="text" class="form-control" placeholder="Enter Staff id" id="id" name="staff_id" required>
@@ -146,10 +146,10 @@
                                     <label for="password-verify">Re-type password</label>
                                     <input type="password" id="password-verify"> <br>
                                 </div>
-                                
-                                <button type="submit">Reset password</button>
-                                
-                            </form>
+
+                                 <button type="submit">Reset password</button>
+                            
+                                </form>
                         </div>
 
                         <div class="modal-footer">

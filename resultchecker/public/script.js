@@ -1,6 +1,6 @@
-window.addEventListener("beforeunload", function () {
-  sessionStorage.removeItem("refreshed");
-});
+// window.addEventListener("beforeunload", function () {
+//   sessionStorage.removeItem("refreshed");
+// });
 
 function myFunction() {
   var x = document.getElementById("pwd");

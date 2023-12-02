@@ -23,7 +23,7 @@ db.none(
         phonenumber BIGINT NOT NULL,
         grades VARCHAR(255) NOT NULL,
         department VARCHAR(255) NOT NULL,
-        password VARCHAR(25) NOT NULL
+        password VARCHAR(255) NOT NULL
     )`
 ).then(() => {
     console.log("Staff table has been created successfully")

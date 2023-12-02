@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const path = require('path');
 
 const { db } = require("../models/Result");
 
@@ -16,13 +17,13 @@ router.post("/newresult", function (req, res) {
     res.redirect('/res_proc.html')
   }).catch((error) => {
     console.error('Error creating reuslt:', error)
-    res.status(500).json({error: "Internal Server error"})
+    res.redirect("/res_proc.html");
   })
 })
 
 router.post("/checkresult", function (req, res) {
   const { student_id, session, term, password } = req.body;
-  console.log({student_id, session, term, password})
+
    db.any(
      "SELECT students.surname as surname, students.othername as othername, students.department as Department, results.grade as Class, results.term as Term, results.subject as Subject, results.score as Score, results.session as Session, results.remark as Remark FROM public.students JOIN public.results ON students.student_id = results.student_id WHERE results.term = '" +
        term +
@@ -31,11 +32,17 @@ router.post("/checkresult", function (req, res) {
      "' AND students.student_id = '"
      + student_id + "'"
    ).then((data) => {
-     console.log(data);
-     //res.send(data)
+     //console.log(data);
+    //  res.send(data)
      res.render('result', { data, student_id });
+    //  const filePath = path.join(__dirname, "../public", "result.html");
+
+    //  // Send the file as a response
+    //  res.sendFile(filePath, data);
+     
    });
   
 })
+
 
 module.exports = router;

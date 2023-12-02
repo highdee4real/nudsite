@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS students (
     student_id VARCHAR(25) PRIMARY KEY,
     surname VARCHAR(25) NOT NULL,
     othername VARCHAR(25) NOT NULL,
-    gender VARCHAR(5) NOT NULL,
+    gender VARCHAR(25) NOT NULL,
     grade VARCHAR(25) NOT NULL,
     department VARCHAR(25) NOT NULL,
     password VARCHAR(255) NOT NULL

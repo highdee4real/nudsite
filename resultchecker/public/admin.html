@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="10"> 
+
 <title>Admin</title>
 <link rel="stylesheet" href="bootstrap/css/boostrap">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -74,7 +74,7 @@
                 <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: tomato; color: white;">Back</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: red; color: white;">Logout</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/logout" style="background-color: red; color: white;">Logout</a>
             </li>
         </ul>          
     </div>
@@ -91,14 +91,14 @@
             <h1 class="text-primary">Admin </h1> <br>
         </center> 
 
-        <form action="#"> <!-- /action_page.php -->
+        <form action="admin/signup" method="post"> <!-- /action_page.php -->
             <div class="form-group pt-3">
               <label for="id">Username:</label>
-              <input type="text" class="form-control" placeholder="Enter Staff id" id="id">
+              <input type="text" class="form-control" placeholder="Enter Admin username" id="username" name="username">
             </div>
             <div class="form-group pt-4 pb-4">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+              <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
             </div>
             <div class="form-group form-check pb-5">
                 <label class="form-check-label"> 

@@ -73,7 +73,7 @@
                 <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: tomato; color: white;">Back</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: red; color: white;">Logout</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/logout" style="background-color: red; color: white;">Logout</a>
             </li>
         </ul>          
     </div>
@@ -132,7 +132,7 @@
                         </div>
 
                         <div class="modal-body">
-                            <form id="password-reset-form">
+                            <form id="password-reset-form" method="post" action="student/resetpassword">
                                 <div id="alert"></div>
                                 <div class="form-group pb-2">
                                     <label for="id">Student Id</label>
@@ -147,14 +147,14 @@
                                     <input type="password" id="password-verify"> <br>
                                 </div>
                                 
-                                <button type="submit">Reset password</button>
+                                <button type="submit" class="btn btn-success">Reset password</button>
                                 
                             </form>
                         </div>
 
-                        <div class="modal-footer">
+                        <!-- <div class="modal-footer">
                             <button type="button" class="btn btn-success" data-dismissal="modal">close</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
