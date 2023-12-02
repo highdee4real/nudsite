@@ -50,8 +50,6 @@ router.post("/login", async function (req, res) {
         const result = await db.query(query, values);
         if (result) {
             const user = result;
-            console.log(user)
-            console.log(password)
             const passwordMatch = await bcrypt.compare(password, user[0].password);
 
             if (passwordMatch) {
@@ -68,4 +66,39 @@ router.post("/login", async function (req, res) {
         res.redirect("/std_log.html");
     }
 })
+
+router.post("/resetpassword", async function (req, res) {
+  const { student_id, password } = req.body;
+  console.log({ student_id, password });
+
+  try {
+    // Check if the user exists before attempting to update the password
+    const checkQuery = "SELECT * FROM public.students WHERE student_id = $1";
+    const checkValues = [student_id];
+    const checkResult = await db.query(checkQuery, checkValues);
+
+    if (checkResult.rows === 0) {
+      // User not found
+      console.log("User not found");
+      res.redirect("/resetpass.html");
+      return;
+    }
+
+    // User found, proceed with password update
+    const saltRounds = 5; // Adjust the number of salt rounds as needed
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    const updateQuery =
+      "UPDATE public.students SET password = $1 WHERE student_id = $2";
+    const updateValues = [hashedPassword, student_id];
+
+    await db.query(updateQuery, updateValues);
+    console.log("User updated successfully:");
+    res.redirect("/std_log.html");
+  } catch (error) {
+    console.error("Database Error", error);
+    res.redirect("/std_log.html");
+  }
+});
+
 module.exports = router;

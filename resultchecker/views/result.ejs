@@ -86,41 +86,91 @@
               </tbody>
         </table>
      
-        <table class="table table-bordered" style="width: 100%;">
-            <thead>
-                <tr>
-                    <th class="w-20">S/No</th> 
-                    <th>Subject</th>
-                    <th>Final Score</th>
-                    <th>Grade</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% let counter = 1; %>
-                <% let uniqueSubjects = new Set(); %>
+        <% let counter = 1; %>
+        <% let totalScore = 0; %>
+        <% let uniqueSubjects = new Set(); %>
 
-                <% data.forEach(data => { %>
-                    <% if (!uniqueSubjects.has(data.subject)) { %>
+        <% data.forEach(data => { %>
+            <% if (!uniqueSubjects.has(data.subject)) { %>
+                <% uniqueSubjects.add(data.subject); %>
+                <% totalScore += parseInt(data.score) %>
+            <% } %>
+        <% }); %>
+
+        <% let averageScore = totalScore / uniqueSubjects.size; %>
+        <% let teacherRemark = getRemark(averageScore); %>
+        <% let principalRemark = getPrincipalRemark(averageScore); %>
+        
+        <% if (uniqueSubjects.size >= 10) { %>
+            <table class="table table-bordered" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th class="w-20">S/No</th> 
+                        <th>Subject</th>
+                        <th>Score</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(data => { %>
                         <tr>
                             <td><%= counter++ %></td>
                             <td><%= data.subject %></td>
                             <td><%= data.score %></td>
                             <td><%= data.remark %></td>   
                         </tr>
-                        <% uniqueSubjects.add(data.subject); %>
-                    <% } %>
-                <% }); %>
-                <tr>
-                    <td colspan="4" class="fw-bold">Class teacher's remark:</td> 
-                </tr>
-                <tr>
-                    <td colspan="4" class="fw-bold">Principal's remark</td>
-                </tr>
-            </tbody>
-        </table>
+                        
+                    <% }); %>
+                    <tr>
+                        <td colspan="2" class="fw-bold">Final Score: <%=totalScore %></td> 
+                        <td colspan="2" class="fw-bold">Average: <%= averageScore.toFixed(2) %></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="fw-bold">Class teacher's remark: <%= teacherRemark %> </td> 
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="fw-bold">Principal's remark: <%= principalRemark %></td>
+                    </tr>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>Please wait while your result is being finalized.</p>
+        <% } %>
+        <%
+        function getRemark(percentage) {
+            if (percentage >= 80) {
+                return 'Excellent';
+            } else if (percentage >= 60) {
+                return 'Good';
+            } else if (percentage >= 40) {
+                return 'Average';
+            } else {
+                return 'Needs Improvement';
+            }
+        }
+
+        function getPrincipalRemark(percentage) {
+            if (percentage >= 80) {
+                return 'Outstanding performance! Keep it up.';
+            } else if (percentage >= 60) {
+                return 'Well done. Continue to strive for excellence.';
+            } else if (percentage >= 40) {
+                return 'You are making progress. Keep working hard.';
+            } else {
+                return 'There is room for improvement. Let\'s work together to enhance your performance.';
+            }
+        }
+        %>
+
+
         <center>
-            <button type="button" id="print" class="btn btn-primary fw-bold rounded-circle" style="height: 50px; width: 100px; border-color: blue;">Print</button> &nbsp; &nbsp;
+            <button type="button" id="print" class="btn btn-primary fw-bold rounded-circle" style="height: 50px; width: 100px; border-color: blue;" onclick="printPage()">Print</button> &nbsp; &nbsp;
             <a class= "border-2 pt-1 pb-1 px-2 rounded-circle a text-danger fw-bold" href="/check.html"> Close </a>
+            <script> 
+                function printPage() {
+                    window.print();
+                } 
+            </script>
         </center>
     </div>
     <div class="col-md-3"></div>

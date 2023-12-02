@@ -55,13 +55,13 @@
               <a class="nav-link pt-2 pb-2 px-2 a" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="std_log.html">Students' page</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/std_log.html">Students' page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="staff_log.html">Staffs' page</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/staff_log.html">Staffs' page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pt-2 pb-2 px-2 a" href="check.html">Check result</a>
+                <a class="nav-link pt-2 pb-2 px-2 a" href="/check.html">Check result</a>
             </li>
         </ul>
     </div>
@@ -86,17 +86,14 @@
 <div class="row pt-5 pb-5" style="background-color: #e6e6e6; height: 845px;">
     <div class="col-md-4">
     </div>
-    <div class="col-md-4 pt-2 " style="border: 3px solid hotpink; border-radius: 15px;">
+    <div class="col-md-4 pt-2" style="border: 3px solid hotpink; border-radius: 15px;">
         <center><p class="text-black">
-            <h1>Result processing</h1> <br>
-             <i class="text-danger"> <strong>
-                Click <a href="multires_proc.html">here</a> to go back </strong>
-            </i>
+            <h1>Update Result</h1> <br>
         </center>   
 
-        <form action="/result/newresult" method="post"> <!-- /action_page.php -->
+        <form action="/result/updateresult" method="post"> <!-- /action_page.php -->
             <div class="form-group pt-2">
-              <label for="id">Student register no:</label>
+              <label for="id">Enter student register no:</label>
               <input type="text" class="form-control" placeholder="Student resgister no" id="id" name="student_id" required>
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div>
@@ -173,12 +170,12 @@
 
 
             <button type="submit" class="btn btn-primary">Save record</button>
-            <button type="submit" class="btn btn-warning"><a href="http://localhost:3000/result/update">Update record</a></button>  
+              
             
         </form>
     </div> 
 
-    <div class="col-md-4 pt-10">
+    <div class="col-md-4">
     </div>
 </div>
 <div class="row" style="background-color: #e6e6e6;">

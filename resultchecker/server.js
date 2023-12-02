@@ -4,7 +4,7 @@ const path = require('path')
 const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 const { Pool } = require("pg");
-const bcrypt = require("bcrypt");
+
 
 const app = express()
 const port = process.env.PORT || 3000;
@@ -45,21 +45,28 @@ app.use(
   })
 );
 
-const isAuth = require("./middleware/Auth")
+const { isStudentAuth, isStaffAuth } = require("./middleware/Auth")
 
 const AdminRouter = require("./routes/admin");
 const StudentRouter = require("./routes/student");
 const StaffRouter = require("./routes/staff");
 const ResultRouter = require("./routes/result");
 
+//app.use(isStudentAuth);
 app.use("/admin", AdminRouter);
 app.use("/student",  StudentRouter);
 app.use("/staff",  StaffRouter);
-app.use("/result", ResultRouter);
+app.use("/result", isStudentAuth, ResultRouter);
+
+// Your route handling logic goes here
+// app.get('/res_proc.html', isStaffAuth, function (req, res) {
+//   console.log("url is visited")
+//   res.sendFile(__dirname + '.../public/res_proc.html');
+// });
 
 app.get("/logout", function (req, res) {
-  req.session.userID = '';
-  res.redirect('/index.html');
+  req.session.userID = "";
+  res.redirect("/index.html");
 });
 
 app.use((err, req, res, next) => {

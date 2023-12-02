@@ -63,27 +63,34 @@ router.post("/login", async function (req, res) {
 
 router.post("/resetpassword", async function (req, res) {
   const { staff_id, password } = req.body;
-  const saltRounds = 5;
-  const hashedPassword = await bcrypt.hash(password[1], saltRounds)
+  console.log({ staff_id, password });
+
   try {
-    db.none(
-    "UPDATE public.staff WHERE staff_id = '" +
-      staff_id[1] +
-      "' SET password = '" +
-      hashedPassword +
-      "'"
-  )
-    .then(() => {
-      res.redirect("/staff_log.html");
-    })
-    .catch((error) => {
-      console.error(error)
-      res.redirect("/staff_log.html");
-    });
+    // Check if the user exists before attempting to update the password
+    const checkQuery = "SELECT * FROM public.staff WHERE staff_id = $1";
+    const checkValues = [staff_id];
+    const checkResult = await db.query(checkQuery, checkValues);
+
+    if (checkResult.rows === 0) {
+      // User not found
+      console.log("User not found");
+      //res.redirect("/resetpass.html");
+      return;
+    }
+    // User found, proceed with password update
+    const saltRounds = 5; // Adjust the number of salt rounds as needed
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    const updateQuery =
+      "UPDATE public.staff SET password = $1 WHERE staff_id = $2";
+    const updateValues = [hashedPassword, staff_id];
+    await db.query(updateQuery, updateValues);
+    console.log("User updated successfully:");
+    res.redirect("/staff_log.html");
   } catch (error) {
-    console.error("Internal Server Error:", error)
-    res.render('404')
+    console.error("Database Error", error);
+    res.redirect("/staff_log.html");
   }
-})
+});
 
 module.exports = router

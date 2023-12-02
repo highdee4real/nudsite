@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Staff's Login</title>
+<title>Student's Login</title>
 <link rel="stylesheet" href="bootstrap/css/boostrap">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css.map">
@@ -82,91 +82,38 @@
         <img class="img-fluid rounded-circle px-2" src="nysc.png" alt="Logo" style="height: 70px;">
     </div>
 </div>
-<div class="row pt-5 pb-5" style="background-color: #e6e6e6; height: 615px;">
-    <div class="col-md-4">
+<div class="row " >
+     <div class="modal-header">
+        <h4 class="modal-title">Reset password</h4>
+        
     </div>
-    <div class="col-md-4 pt-2" style="border: 3px solid hotpink; border-radius: 15px;">
-        <center><p class="text-black">
-            <h1>Staff Sign-in </h1> <br>
-            <h4>Kindly <b> <i> Sign-in </i> </b>to your dashboard below </h4>
-            <p class="text-danger"><strong>No Sign-in information, Click <a href="staff_reg.html"><i>here</i></a> to register </strong></p>
-        </p> </center> 
 
-        <form action="/staff/login" method="post"> <!-- /res_proc.php -->
-            <div class="form-group pt-3">
-              <label for="id">Staff_Id:</label>
-              <input type="text" class="form-control" placeholder="Enter Staff id" id="id" name="staff_id" required>
+    <div class="modal-body">
+        <form id="password-reset-form" method="post" action="student/resetpassword">
+            <div id="alert"></div>
+            <div class="form-group pb-2">
+                <label for="id"> Id</label>
+                <input type="text" id="id" style="width: 250px;" name="student_id"> <br>
             </div>
-            <div class="form-group pt-4 pb-4">
-              <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" name="password" id="pwd" required>
+            <div class="form-group pb-2">
+                <label for="password">Password</label>
+                <input type="password" id="password" style="width: 250px;" name="password"> <br>
             </div>
-            <div class="form-group form-check pb-2">
-                <label class="form-check-label"> 
-                    <input class="form-check-input" type="checkbox" onclick="myFunction()"> Show/Hide password  <!-- Remember me - using Javascript to show/hide password -->
-                </label>
-                <script>
-                    function myFunction(){
-                        var x = document.getElementById("pwd");
-                        if (x.type === "password"){
-                            x.type = "text"
-                        } else {
-                            x.type = "password"
-                        }
-                    }
-                </script>
-              
+            <div class="form-group pb-2">
+                <label for="password-verify">Re-type password</label>
+                <input type="password" id="password-verify"> <br>
             </div>
-            <button type="submit" class="btn btn-primary">Sign-in</button> &nbsp; &nbsp; &nbsp; 
             
-            <!--Reset password-->
-            <button type="button" class="btn btn-warning" ><a href="staff_resetpass.html">Reset password</a></button> <!--Pop-up container-->
-
-            <!--Modal-->
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Reset password</h4>
-                            <button type="button" class="close" data-dismissal="modal">&times;</button>
-                        </div>
-
-                        <div class="modal-body">
-                            <form id="password-reset-form">
-                                <div id="alert"></div>
-                                <div class="form-group pb-2">
-                                    <label for="id">Staff Id</label>
-                                    <input type="text" name="staff_id" id="id" style="width: 250px;"> <br>
-                                </div>
-                                <div class="form-group pb-2">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" style="width: 250px;"> <br>
-                                </div>
-                                <div class="form-group pb-2">
-                                    <label for="password-verify">Re-type password</label>
-                                    <input type="password" id="password-verify"> <br>
-                                </div>
-
-                                 <button type="submit">Reset password</button>
-                            
-                                </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismissal="modal">close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-
-          </form>
-    </div> 
-
-    <div class="col-md-4">
+            <button type="submit" class="btn btn-success">Reset password</button>
+            
+        </form>
     </div>
 </div>
+                       
+
+
 <div class="row" style="background-color: #e6e6e6;">
         <div class="col-md-12 footer-copyright text-center"> &copy; <b>2023 Copyright Osogbo Mind The Gap (MTG)</b> </div>
 </div>
+</body>
+</html>
