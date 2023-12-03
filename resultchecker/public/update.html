@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>Check Result</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<title>Result processing</title>
 <link rel="stylesheet" href="bootstrap/css/boostrap">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css.map">
@@ -54,13 +55,13 @@
               <a class="nav-link pt-2 pb-2 px-2 a" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="std_log.html">Students' page</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/std_log.html">Students' page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pt-2 pb-2 px-2 a" href="staff_log.html">Staffs' page</a>
+              <a class="nav-link pt-2 pb-2 px-2 a" href="/staff_log.html">Staffs' page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pt-2 pb-2 px-2 a" href="check.html">Check result</a>
+                <a class="nav-link pt-2 pb-2 px-2 a" href="/check.html">Check result</a>
             </li>
         </ul>
     </div>
@@ -82,51 +83,94 @@
         <img class="img-fluid rounded-circle px-2" src="nysc.png" alt="Logo" style="height: 70px;">
     </div>
 </div>
-<div class="row pt-2 pb-2" style="background-color: #e6e6e6; height: 615px;">
+<div class="row pt-5 pb-5" style="background-color: #e6e6e6; height: 845px;">
     <div class="col-md-4">
     </div>
     <div class="col-md-4 pt-2" style="border: 3px solid hotpink; border-radius: 15px;">
         <center><p class="text-black">
-            <h1>Check result</h1> <br>
+            <h1>Update Result</h1> <br>
         </center>   
 
-        <form action="result/checkresult" method="post"> <!-- /RESULT.php -->
+        <form action="result/updateresult" method="post"> <!-- /action_page.php -->
             <div class="form-group pt-2">
-              <label for="id">Student register no:</label>
+              <label for="id">Enter student register no:</label>
               <input type="text" class="form-control" placeholder="Student resgister no" id="id" name="student_id" required>
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-            <div class="form-group">
-                <label for="session">Select session:</label>
-                <select class="form-control" id="session" name="session" required>
-                  <option value="2023/24">2023/2024</option>
-                </select>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+            <div class="form-group pt-2">
+              <label for="grade">Class:</label>
+              <input type="text" class="form-control" placeholder="Class" id="grade" name="grade" required>
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-
+            <div class="form-group pt-2">
+              <label for="term">Term:</label>
+              
+              <select class="form-control" id="term" name="term" required>
+                <option value="First Term">First Term</option>
+                <option value="Second Term">Second Term</option>
+                <option value="Third Term">Third Term</option>
+              </select>
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group pt-2">
+              <label for="session">Session:</label>
+              <select class="form-control" id="session" name="session" required>
+                <option value="2023/24">2023/24</option>
+              </select>
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
             <div class="form-group">
-                <label for="term">Select term:</label>
-                <select class="form-control" id="term" name="term" required>
-                  <option value="First Term">First Term</option>
-                  <option value="Second Term">Second Term</option>
-                  <option value="Third Term">Third Term</option>
+                <label for="subject">Select Subject:</label>
+                <select class="form-control" id="subject" name="subject" required>
+                  <option value="English">Engish</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Computer Studies">Computer Studies</option>
+                  <option value="Geography">Geography</option>
+                  <option value="Agricultural Science">Agricultural Science</option>
+                  <option value="Economics">Economics</option>
+                  <option value="IRS/CRS">IRS/CRS</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Further Mathematics">Further Mathematics</option>
+                  <option value="Government">Government</option>
+                  <option value="Literature in English">Literature in English</option>
+                  <option value="Financial Accounting">Financial Accounting</option>
+                  <option value="Commerce">Commerce</option>
                 </select>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group pt-2">
-              <label for="session">Grade:</label>
-              <select class="form-control" id="grade" name="grade">
-                <option value="SS1">SS1</option>
-                <option value="SS2">SS2</option>
-                <option value="SS3">SS3</option>
-              </select>
+                <label for="score">Score:</label>
+                <input type="number" class="form-control" placeholder="Score" id="score" name="score" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Check</button>  
+            <div class="form-group">
+                <label for="remark">Select Remark:</label>
+                <select class="form-control" id="remark" name="remark" required>
+                  <option value="Excellent">Excellent</option>
+                  <option value="Very Good">Very Good</option>
+                  <option value="Good">Good</option>
+                  <option value="Fair">Fair</option>
+                  <option value="Poor">Poor</option>
+                  <option value="Failed">Failed</option>
+                </select>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Update record</button>
+              
             
         </form>
     </div> 
@@ -137,5 +181,6 @@
 <div class="row" style="background-color: #e6e6e6;">
         <div class="col-md-12 footer-copyright text-center"> &copy; <b>2023 Copyright Osogbo Mind The Gap (MTG)</b> </div>
 </div>
+
 </body>
 </html>

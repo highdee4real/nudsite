@@ -63,7 +63,7 @@ router.post("/login", async function (req, res) {
 
 router.post("/resetpassword", async function (req, res) {
   const { staff_id, password } = req.body;
-  console.log({ staff_id, password });
+
 
   try {
     // Check if the user exists before attempting to update the password
