@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta http-equiv="refresh" content="10">   -->
+<title>Result</title>
+<link rel="stylesheet" href="bootstrap/css/boostrap">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.rtl.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.rtl.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.rtl.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.rtl.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.rtl.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.rtl.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.rtl.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.rtl.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.min.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.rtl.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.rtl.css.map">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.rtl.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.rtl.min.css.map">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+<script>
+    function checkFn(){
+        alert("You have to login first!");
+        window.location.href = "std_log.html";
+    }
+</script>
+<body style="background-color: #e6e6e6;">
+    <div class="row pb-1 pt-1" style="background-color: hotpink;">
+        <div class="col-1 col-m-1">
+            <img class="img-fluid rounded-circle px-2" src="sch_logo.jpg" alt="Logo" style="height: 70px;">
+        </div>
+    
+        <div class="col-8 col-m-9">
+            <ul class="nav pt-3">
+                <li class="nav-item">
+                  <a class="nav-link pt-2 pb-2 px-2 a" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pt-2 pb-2 px-2 a" href="std_log.html">Students' page</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pt-2 pb-2 px-2 a" href="staff_log.html">Staffs' page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pt-2 pb-2 px-2 a" href="javascript: void(0)" onclick="checkFn()">Check result</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-2 col-m-11">
+            <ul class="nav pt-3">
+                <li class="nav-item">
+                  <a class="nav-link pt-2 pb-2 px-2 a" href="admin.html">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" onclick="return confirm('You will be redirected to home page!')" style="background-color: tomato; color: white;">Back</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: red; color: white;">Logout</a>
+                </li>
+            </ul>          
+        </div>
+    
+        <div class="col-1 col-m-12">
+            <img class="img-fluid rounded-circle px-2" src="nysc.png" alt="Logo" style="height: 70px;">
+        </div>
+    </div>
+
+
+    <div class="row my-2">
+    <div class="col-3 col-m-3"></div>
+    <div class="col-6 col-m-9">
+        <form action="admin/viewresult" method="post"> 
+            <center>
+                <p><h3 class="text-primary">Track result</h3></p>
+            </center>
+        <div class="form-group pt-2">
+          <label for="session">Session:</label>
+          <select class="form-control" id="session" name="session">
+            <option value="2023/2024">2023/24</option>
+            <option value="2024/2025">2024/25</option>
+          </select>
+        </div>
+          <div class="form-group pt-2">
+            <label for="term">Term:</label>
+            <select class="form-control" id="term" name="term">
+              <option value="First Term">First Term</option>
+              <option value="Second Term">Second Term</option>
+              <option value="Third Term">Third Term</option>
+            </select>
+           </div>
+            <div class="form-group pt-2">
+                <label for="grade">Class:</label>
+                <select class="form-control" id="grade" name="grade">
+                  <option value="SS1">SS1</option>
+                  <option value="SS2">SS2</option>
+                  <option value="SS3">SS3 </OPTIon>
+                </select>
+            </div>
+            <div class="form-group pt-2">
+                <label for="department">Department:</label>
+                <select class="form-control" id="department" name="department">
+                  <option value="Art">Art</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Science">Science</option>
+                </select>
+            </div>
+
+            <button type="submit">Track result</button>
+        </div>
+    <div class="col-3 col-m-12"></div>
+</div>
+<div class="row" style="background-color: #e6e6e6;">
+    <div class="col-12 col-m-12 footer-copyright text-center"> &copy; <b>2023 Copyright Osogbo Mind The Gap (MTG)</b> </div>
+</div>
+</body>

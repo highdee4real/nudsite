@@ -23,4 +23,5 @@ db.none(
     console.error("Error creating session table:", error);
   });
 
+db;
 module.exports = { db, sessionSchema };

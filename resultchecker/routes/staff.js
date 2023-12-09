@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt')
 
 const { db } = require("../models/Staff");
+//const { sessionDb } = require("../models/Session")
 
 router.get("/", function (req, res) {
     res.send("Welcome to the staff API")
@@ -39,8 +40,8 @@ router.post("/signup", async function (req, res) {
 router.post("/login", async function (req, res) {
   const { staff_id, password } = req.body;
     const query = "SELECT * FROM public.staff WHERE staff_id = $1";
-    const values = staff_id[0];
-
+    const values = staff_id ;
+    // sessionDb;
     try {
         const result = await db.query(query, values);
         if (result) {

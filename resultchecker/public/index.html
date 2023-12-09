@@ -40,6 +40,12 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+    function checkFn(){
+        alert("You have to login first!");
+        window.location.href = "std_log.html";
+    }
+</script>
 <body>
 <div class="row pb-1 pt-1" style="background-color: hotpink;">
     <div class="col-md-1">
@@ -58,7 +64,7 @@
               <a class="nav-link pt-2 pb-2 px-2 a" href="staff_log.html">Staffs' page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pt-2 pb-2 px-2 a" href="check.html">Check result</a>
+                <a class="nav-link pt-2 pb-2 px-2 a" href="javascript:void(0)" onclick="checkFn()">Check result</a>
             </li>
         </ul>
     </div>
@@ -68,7 +74,7 @@
               <a class="nav-link pt-2 pb-2 px-2 a" href="admin.html">Admin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" style="background-color: tomato; color: white;">Back</a>
+                <a class="nav-link pt-2 pb-2 px-2 a" href="index.html" onclick="return confirm('You will be redirected to home page!')" style="background-color: tomato; color: white;">Back</a>
             </li>
             <li class="nav-item">
               <a class="nav-link pt-2 pb-2 px-2 a" href="/logout" style="background-color: red; color: white;">Logout</a>
@@ -83,7 +89,7 @@
 <div class="row" style="background-color: #e6e6e6;">
     <div class="col-md-12">
         <center><p class="text-black">
-           <h1> Welcome to <br> Nawarudeen Grammar School, Osogbo </h1> </p> <p> <h2>Result Processing Website </h2>
+           <h1> Welcome to <br> Nawair-udeen Grammar School, Osogbo <br>  <h3> 28, Oke-Baale, Osogbo </h3> </h1> </p> <p> <h2>Result Processing Website </h2>
         </p> </center>
     </div>
     <div class="col-md-12">
